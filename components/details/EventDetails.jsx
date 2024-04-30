@@ -1,7 +1,8 @@
 import React from "react";
 import EventVenue from "./EventVenue";
 
-const EventDetails = ({eventInfo}) => {
+const EventDetails = ({details,swags,location}) => {
+  console.log(details,swags)
   return (
     <section className="container">
       <div className="grid grid-cols-5 gap-12 my-12">
@@ -10,19 +11,30 @@ const EventDetails = ({eventInfo}) => {
             <h2 className="font-bold text-2xl">Details</h2>
             <div className="my-2 text-[#AEAEAE] space-y-4 prose lg:prose-lg max-w-none">
               <p className>
-                {eventInfo?.details}
+                {details}
               </p>
-              <ul className>
+              {
+                swags && (
+                  <ul>
+                    {
+                      swags.map((swag) =>(
+                        <li key={swag} >{swag}</li>
+                      ))
+                    }
+                  </ul>
+                )
+              }
+              {/* <ul className>
                 <li>🎉 Free Tshirt</li>
                 <li>🕹️ Networking</li>
                 <li>🎯 Networking</li>
                 <li>📌 Free Foods</li>
                 <li>🚀 Free Wifi</li>
-              </ul>
+              </ul> */}
             </div>
           </div>
         </div>
-        <EventVenue/>
+        <EventVenue location={location}/>
       </div>
     </section>
   );

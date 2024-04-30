@@ -5,11 +5,11 @@ import { getEventById } from '@/db/query';
 
 const EventDetailPage = async ({params:{id}}) => {
     let eventInfo = await getEventById(id)
-    console.log(eventInfo)
+    // console.log(eventInfo)
     return (
         <main>
             <HeroSection eventInfo={eventInfo}/>
-            <EventDetails eventInfo={eventInfo}/>
+            <EventDetails details={eventInfo?.details} swags={eventInfo?.swags} location={eventInfo?.location}/>
         </main>
     );
 };
