@@ -1,5 +1,6 @@
 import { eventModal } from "@/models/event-models";
 import { replaceMongoIdInArray,replaceMongoIdInObject } from "@/utils/data-util";
+import { userModel } from "@/models/user-modal";
 
 async function getAllEvents (){
     const allEvents = await eventModal.find().lean()
@@ -11,7 +12,14 @@ async function getEventById(eventId){                   //lean moloto unwanted f
     return replaceMongoIdInObject(event)
 }
 
+
+async function createUser(user){
+    return await userModel,create(user)
+}
+
+
 export{
     getAllEvents,
-    getEventById
+    getEventById,
+    createUser
 }
