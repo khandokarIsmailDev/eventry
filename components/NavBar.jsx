@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const NavBar = () => {
   return (
@@ -16,6 +17,7 @@ const NavBar = () => {
           </a>
         </div>
         <ul className="flex gap-4 text-[#9C9C9C]">
+          <li><Link href={'/login'}>Login</Link></li>
           <li>About</li>
           <li>Contact Us</li>
         </ul>
