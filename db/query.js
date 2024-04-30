@@ -1,11 +1,11 @@
 import { eventModal } from "@/models/event-models";
 
 
-async function allEvents (){
+async function getAllEvents (){
     const events = await eventModal.find()
     return events
 }
 
 export{
-    allEvents
+    getAllEvents
 }

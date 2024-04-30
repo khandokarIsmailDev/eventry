@@ -25,4 +25,4 @@ const schema = new Schema({
 })
 
 
-export const eventModal = mongoose.model.events ?? mongoose.model("events",schema )
+export const eventModal = mongoose.model("events",schema )
