@@ -3,8 +3,9 @@ import mongoose from "mongoose";
 
 export async function dbConnect(){
     try{
-        const connect = await mongoose.connect(process.env.MONGO_URI)
-        return connect
+        const conn = await mongoose.connect(process.env.MONGO_URI)
+        console.log('Database is connected successfully!')
+        return conn
     }catch(err){
         console.log(err)
     }
