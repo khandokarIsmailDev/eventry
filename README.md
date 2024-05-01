@@ -9,3 +9,4 @@ https://learnwithsumit.com/rnext/courses/rnext/project-eventry-part-3-login-regi
 
 # But login form ta client action to server action kora hoise, just bojar jonno, client component kibabe server action k handle kore
 
+# after 30 mint this video, akhon skilam `Context api` in next js!!!!!
