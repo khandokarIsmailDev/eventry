@@ -19,7 +19,10 @@ async function createUser(user){
 
 async function findUserByCreditial(credential){
     const user = await userModel.findOne(credential).lean()  //lean mane meta data amader dorkar nai
-     return user
+    if(user){
+        return replaceMongoIdInObject(user)  // amara user info _id ta objectId thake, oitake amra string kore nilam just
+    }
+     return null
 }
 
 

@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import { performLogin } from "@/app/actions";
-
+import { useAuth } from "@/app/hooks/useAuth";
 
 const LoginForm = () => {
 
   const [error,setError] = useState("")
+
+  const {setAuth} = useAuth()
 
   async function onSubmit(event){
     event.preventDefault()
