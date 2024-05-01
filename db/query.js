@@ -14,7 +14,7 @@ async function getEventById(eventId){                   //lean moloto unwanted f
 
 
 async function createUser(user){
-    return await userModel,create(user)
+    return await userModel.create(user)
 }
 
 
