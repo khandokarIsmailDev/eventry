@@ -1,6 +1,6 @@
 'use server'
 
-import { createUser } from "@/db/query"
+import { createUser,findUserByCreditial } from "@/db/query"
 import { redirect } from "next/navigation"
 
 // use server tokoni use kori, jokon seita kono motei client component posible na, explicit server component
@@ -15,6 +15,20 @@ async function registerUser(formData){   //input name ta nibe, auto matic, kisoi
 
 }
 
+async function performLogin(formData){
+    const credential = {}
+     credential.email = formData.get("email")
+     credential.password = formData.get('password')
+     const found = await findUserByCreditial(credential)
+
+     if(found){
+        redirect('/')
+     }else{
+        throw new Error(`User with email ${formData.get('email')} not found!`)
+     }
+}
+
 export {
-    registerUser
+    registerUser,
+    performLogin
 }

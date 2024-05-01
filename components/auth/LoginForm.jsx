@@ -1,8 +1,33 @@
-import React from "react";
+'use client'
+
+import { useState } from "react";
+import { performLogin } from "@/app/actions";
+
 
 const LoginForm = () => {
+
+  const [error,setError] = useState("")
+
+  async function onSubmit(event){
+    event.preventDefault()
+
+    try{
+
+      const formData = new FormData(event.currentTarget)
+
+      await performLogin(formData )
+
+    }catch(err){
+      setError(err.message)
+    }
+  }
+
   return (
-    <form className="login-form">
+    <>
+    <div className="my-2 text-red-500">
+      {error}
+    </div>
+    <form className="login-form" onSubmit={onSubmit}>
       <div>
         <label htmlFor="email">Email Address</label>
         <input type="email" name="email" id="email" />
@@ -19,6 +44,7 @@ const LoginForm = () => {
         Login
       </button>
     </form>
+    </>
   );
 };
 

@@ -17,9 +17,15 @@ async function createUser(user){
     return await userModel.create(user)
 }
 
+async function findUserByCreditial(credential){
+    const user = await userModel.findOne(credential).lean()  //lean mane meta data amader dorkar nai
+     return user
+}
+
 
 export{
     getAllEvents,
     getEventById,
-    createUser
+    createUser,
+    findUserByCreditial 
 }
