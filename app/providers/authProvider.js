@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { AuthContext } from "../contexts"
 
-export default function AuthProider({children}){
+export default function AuthProvider({children}){
     const [auth,setAuth] = useState(null)
 
     return (
